@@ -1,0 +1,29 @@
+# The comented lines are for provide a fast and easy why to test the diferent ways to persist data with docker volumes, you can simply uncomment each lines and try them by yourself running the docker compose up command
+
+version: "3.9"
+services:
+  front-color:
+    image: "gabo182b/front-color:v6"
+    ports:
+      - 8080:8080
+  
+  back-color:
+    image: "gabo182b/back-color:v3"
+    ports:
+      - 3001:3001
+    volumes:
+      - back-color-vol:/app/cache
+      #bind mount (Filesystem)
+      # - /tmp/my-fstmp:/app/cache #When you write an address docker understands that it has to make a bind
+
+#tmpfs mount(memory):
+volumes:
+  back-color-vol:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+
+#volume (Docker area): 
+#When you dont type more options docker understands that it's a local volume managed by docker itself
+# volumes:
+#   back-color-vol:
