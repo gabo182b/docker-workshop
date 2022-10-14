@@ -8,4 +8,8 @@ To try the project clone the repository and run the command => docker compose up
 
 The images provided for the project are in my dockerhub profile
 
-https://hub.docker.com/
+Frontend:
+https://hub.docker.com/repository/docker/gabo182b/front-color
+
+Backend
+https://hub.docker.com/repository/docker/gabo182b/back-color
